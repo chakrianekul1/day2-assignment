@@ -7,7 +7,6 @@ class EqualSplitStrategy {
 
 class ExactSplitStrategy {
     calculate(amount, participantsWithAmounts) {
-        // Validation: Expecting [{userId: 1, amount: 50}, ...]
         return participantsWithAmounts.map(p => ({ userId: p.userId, share: p.amount }));
     }
 }

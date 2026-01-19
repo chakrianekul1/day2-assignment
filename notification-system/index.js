@@ -5,7 +5,6 @@ const { processRestock } = require('./notificationService');
 const app = express();
 app.use(express.json());
 
-// Functional Requirement: User subscribes via HTTP API [cite: 24]
 app.post('/subscribe', async (req, res) => {
     const { user_id, item_id, channel } = req.body;
     try {
@@ -19,11 +18,9 @@ app.post('/subscribe', async (req, res) => {
     }
 });
 
-// Functional Requirement: Inventory restock happens via HTTP API [cite: 25]
 app.post('/restock', async (req, res) => {
     const { item_id, new_stock } = req.body;
     if (new_stock > 0) {
-        // Update stock and notify all subscribed users [cite: 9, 10]
         await db.query('UPDATE items SET stock_count = $1 WHERE id = $2', [new_stock, item_id]);
         await processRestock(item_id); 
     }

@@ -1,4 +1,3 @@
-// Strategy Pattern: Handles different channels [cite: 4, 8, 16]
 class EmailStrategy {
     async send(userId, itemName) { console.log(`📧 Email sent to User ${userId} for ${itemName}`); }
 }

@@ -9,7 +9,7 @@ CREATE TABLE subscriptions (
     user_id INT NOT NULL,
     item_id INT REFERENCES items(id),
     channel VARCHAR(20) NOT NULL,
-    status VARCHAR(20) DEFAULT 'PENDING' -- [cite: 16]
+    status VARCHAR(20) DEFAULT 'PENDING' 
 );
 
 INSERT INTO items (name, stock_count) VALUES ('Laptop', 0), ('Phone', 0);
